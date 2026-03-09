@@ -50,7 +50,7 @@ select opt in "${options[@]}"; do
 			# Build Kernel
 			echo -e "\nBuilding Kernel...\n"
 			cp $opt/$(echo $opt | sed 's/cprime/config/') $buildDir/.config || exit 1
-			sed -i "s/CONFIG_LOCALVERSION=\".*/CONFIG_LOCALVERSION=\"-cprime+$(cat $TOP/version.txt)\"/" $buildDir/.config
+			sed -i "s/CONFIG_LOCALVERSION=\".*/CONFIG_LOCALVERSION=\"-cprime+$(cat $opt/version.txt)\"/" $buildDir/.config
 			PS3="$(echo -e '\nSelect: ')"
 			select conf in Configure Build; do
 				case $conf in
