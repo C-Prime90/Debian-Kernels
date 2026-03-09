@@ -38,7 +38,7 @@ select opt in "${options[@]}"; do
 
 			# Patch Source
 			echo -e "\nPatching Source..."
-			cd build/linux-*
+			cd $buildDir
 			for i in $(find $TOP/$opt -name '*.patch' | sort -V); do
 				echo -e "\tApplying Patch: $opt/$(basename $i)" | sed 's/\t//' | tee -a patch.log
 				patch -Np1 < $i >>patch.log || err="1"
